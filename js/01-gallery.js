@@ -16,15 +16,15 @@ galaryList.innerHTML = galaryListItems;
 galaryList.addEventListener('click', onClickGetBigImage);
 
 
-
-// document.addEventListener('keydown', onClickEscClose);
-
-// function onClickEscClose(evt) {
-
+// function onClickEscapeClose(evt, showImg) {
 //     if (evt.code === 'Escape') {
-//         return
-//     }
-// }
+//         console.log('find')
+//         showImg.close();
+//     };
+// };
+    
+                // , { once: tru })
+
     
 
 function onClickGetBigImage(evt) {
@@ -34,14 +34,19 @@ function onClickGetBigImage(evt) {
     const showImg = basicLightbox.create(`
     <img src="${largeImg}" width="800" height="600">
     `
-     , {
-         onShow: (showImg) => {
-             document.addEventListener('keydown', (evt =>
-             )
-                onClickEscClose() = showImg.close
-                }
-           
+        , {
+            onShow: (showImg) => {
+                document.addEventListener('keydown', 
+                    (evt => {
+                    if (evt.code === 'Escape') {
+                        // console.log('find')
+                        showImg.close();
+                    }
+                }), {once: true});
+                
             }
+           
+        },
     );
     
     showImg.show();
